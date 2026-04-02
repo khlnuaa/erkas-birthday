@@ -89,7 +89,7 @@ const fadeUp = {
   }),
 };
 
-const BirthdayMessage = () => {
+const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
   // Play celebration sound on mount
   useEffect(() => {
     const celebrationSound = new Audio('/wish2.mp3'); 
