@@ -4,10 +4,10 @@ import { Camera } from "lucide-react";
 const PhotoAlbum = () => (
   <motion.div
     key="album"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
+    initial={{ opacity: 0, y: 100, scale: 0.95 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0 }}
-    transition={{ duration: 0.6 }}
+    transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
     className="flex flex-col items-center w-full max-w-3xl mx-auto px-4"
   >
     {/* Header */}
