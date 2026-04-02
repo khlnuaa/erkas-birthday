@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FloatingHearts from "@/components/FloatingHearts";
 import Sparkle from "@/components/Sparkle";
@@ -90,6 +90,8 @@ const fadeUp = {
 };
 
 const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
   // Play celebration sound on mount
   useEffect(() => {
     const celebrationSound = new Audio('/wish2.mp3'); 
@@ -97,11 +99,26 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
     celebrationSound.play().catch(() => {});
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
+      const scrollBottom = el.scrollTop + el.clientHeight;
+      if (scrollBottom >= el.scrollHeight - 40) {
+        onNext();
+      }
+    };
+    const el = containerRef.current;
+    el?.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleScroll);
+  }, [onNext]);
+
   return (
     <motion.div
       key="message"
       initial={{ opacity: 0, scale: 0, rotate: -10 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
+      exit={{ opacity: 0, y: -200, scale: 0.8, transition: { duration: 0.5, ease: "easeIn" } }}
       transition={{
         duration: 0.8,
         type: "spring",
@@ -109,7 +126,8 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         stiffness: 200,
         damping: 12,
       }}
-      className="flex flex-col items-center"
+      ref={containerRef}
+      className="flex flex-col items-center max-h-[85vh] overflow-y-auto scrollbar-hide"
     >
       {/* Explosion particles */}
       <div className="fixed inset-0 pointer-events-none z-50">
@@ -225,26 +243,26 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          It’s been a while since we’ve seen each other — I might be starting to forget your face a little 😂  but somehow 
+          It's been a while since we've seen each other — I might be starting to forget your face a little 😂  but somehow 
           I never forget your birthday.  
           </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          Anyway, I just wanted to say I hope this new decade brings you the courage to try anything you want. It’s okay to 
-          make mistakes — we’re still young, and that’s how we learn about the world and about ourselves. Be brave, take risks, 
-          and trust that there are people who genuinely care about you and are quietly cheering for you. Yes, I’m included.  
+          Anyway, I just wanted to say I hope this new decade brings you the courage to try anything you want. It's okay to 
+          make mistakes — we're still young, and that's how we learn about the world and about ourselves. Be brave, take risks, 
+          and trust that there are people who genuinely care about you and are quietly cheering for you. Yes, I'm included.  
           </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          I don’t usually go around saying “I like this or that about you,” but today’s special and you might just deserve a 
-          little extra kindness from me… your sense of humor has always been funny in the best ways. And let’s be honest, 
+          I don't usually go around saying "I like this or that about you," but today's special and you might just deserve a 
+          little extra kindness from me… your sense of humor has always been funny in the best ways. And let's be honest, 
           that smile of yours is still dangerously good. You better keep it and not show it to every random girl you meet — 
-          haha, of course I’m joking. But really, I hope you know what a charming person you are.😉
+          haha, of course I'm joking. But really, I hope you know what a charming person you are.😉
           </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          And I’m writing this in English because if I said all of this in Mongolian, it would sound way too serious and lose 
-          its funny 😂 I probably wouldn’t even find the right words to express what I mean.  
+          And I'm writing this in English because if I said all of this in Mongolian, it would sound way too serious and lose 
+          its funny 😂 I probably wouldn't even find the right words to express what I mean.  
           </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
@@ -266,19 +284,21 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         </div>
       </motion.div>
 
-      {/* View album button */}
+      {/* Scroll hint */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="mt-10"
+        className="mt-10 mb-6 flex flex-col items-center gap-2"
       >
-        <button
-          onClick={onNext}
-          className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg"
+        <p className="text-sm text-muted-foreground tracking-widest uppercase">Scroll down</p>
+        <motion.span
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-2xl"
         >
-          📸 See Our Album
-        </button>
+          ↓
+        </motion.span>
       </motion.div>
 
       {/* Bouncing emojis */}
@@ -286,7 +306,7 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="mt-6 flex items-center gap-4"
+        className="mt-2 mb-8 flex items-center gap-4"
       >
         {["🎊", "✨", "🥂", "✨", "🎊"].map((emoji, i) => (
           <motion.span
