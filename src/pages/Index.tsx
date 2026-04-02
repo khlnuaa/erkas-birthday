@@ -4,9 +4,10 @@ import FloatingHearts from "@/components/FloatingHearts";
 import Sparkle from "@/components/Sparkle";
 import BlowCandles from "@/components/BlowCandles";
 import { Cake, Star, PartyPopper, Mail, MailOpen } from "lucide-react";
+import PhotoAlbum from "@/components/PhotoAlbum";
 
 const Index = () => {
-  const [step, setStep] = useState<"envelope" | "candles" | "message">("envelope");
+  const [step, setStep] = useState<"envelope" | "candles" | "message" | "album">("envelope");
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
@@ -21,7 +22,8 @@ const Index = () => {
           {step === "candles" && (
             <BlowCandles onComplete={() => setStep("message")} />
           )}
-          {step === "message" && <BirthdayMessage />}
+          {step === "message" && <BirthdayMessage onNext={() => setStep("album")} />}
+          {step === "album" && <PhotoAlbum />}
         </AnimatePresence>
       </div>
     </div>
@@ -87,7 +89,7 @@ const fadeUp = {
   }),
 };
 
-const BirthdayMessage = () => {
+const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
   // Play celebration sound on mount
   useEffect(() => {
     const celebrationSound = new Audio('/wish2.mp3'); 
@@ -264,12 +266,27 @@ const BirthdayMessage = () => {
         </div>
       </motion.div>
 
+      {/* View album button */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="mt-10"
+      >
+        <button
+          onClick={onNext}
+          className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg"
+        >
+          📸 See Our Album
+        </button>
+      </motion.div>
+
       {/* Bouncing emojis */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="mt-10 flex items-center gap-4"
+        className="mt-6 flex items-center gap-4"
       >
         {["🎊", "✨", "🥂", "✨", "🎊"].map((emoji, i) => (
           <motion.span
