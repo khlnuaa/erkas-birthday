@@ -4,6 +4,7 @@ import FloatingHearts from "@/components/FloatingHearts";
 import Sparkle from "@/components/Sparkle";
 import BlowCandles from "@/components/BlowCandles";
 import { Cake, Star, PartyPopper, Mail, MailOpen } from "lucide-react";
+import PhotoAlbum from "@/components/PhotoAlbum";
 
 const Index = () => {
   const [step, setStep] = useState<"envelope" | "candles" | "message">("envelope");
