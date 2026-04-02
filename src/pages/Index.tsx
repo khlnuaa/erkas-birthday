@@ -7,7 +7,7 @@ import { Cake, Star, PartyPopper, Mail, MailOpen } from "lucide-react";
 import PhotoAlbum from "@/components/PhotoAlbum";
 
 const Index = () => {
-  const [step, setStep] = useState<"envelope" | "candles" | "message">("envelope");
+  const [step, setStep] = useState<"envelope" | "candles" | "message" | "album">("envelope");
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
