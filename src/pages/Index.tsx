@@ -266,12 +266,27 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         </div>
       </motion.div>
 
+      {/* View album button */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="mt-10"
+      >
+        <button
+          onClick={onNext}
+          className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg"
+        >
+          📸 See Our Album
+        </button>
+      </motion.div>
+
       {/* Bouncing emojis */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="mt-10 flex items-center gap-4"
+        className="mt-6 flex items-center gap-4"
       >
         {["🎊", "✨", "🥂", "✨", "🎊"].map((emoji, i) => (
           <motion.span
