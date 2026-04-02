@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FloatingHearts from "@/components/FloatingHearts";
 import Sparkle from "@/components/Sparkle";
