@@ -181,15 +181,15 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         className="mb-6"
       >
         <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center shadow-lg overflow-hidden">
-          <img src="https://ih1.redbubble.net/image.3494792996.2576/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="logo" className="w-full h-full object-cover" />
+          <img src="https://pub-e2d4cdbf92de47a19dea2e3fccc07d4a.r2.dev/IMG_5334.png" alt="logo" className="w-full h-full object-cover" />
         </div>
       </motion.div>
 
       {/* Date badge */}
       <motion.div custom={0.5} variants={fadeUp} initial="hidden" animate="visible" className="mb-4">
-        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold tracking-wide uppercase">
+        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-red-400 text-primary-foreground text-sm font-semibold tracking-wide uppercase">
           <PartyPopper className="w-4 h-4" />
-          March 6th
+          April 3rd
           <PartyPopper className="w-4 h-4" />
         </span>
       </motion.div>
@@ -199,7 +199,7 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         initial={{ opacity: 0, scale: 0.3, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6, type: "spring", bounce: 0.5 }}
-        className="font-script text-5xl sm:text-6xl md:text-8xl text-primary text-center leading-tight mb-2"
+        className="font-script text-5xl sm:text-6xl md:text-8xl text-gold text-center leading-tight mb-2"
       >
         Happy 20th
       </motion.h1>
@@ -239,35 +239,29 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
         <div className="rounded-2xl bg-card border border-border p-8 md:p-10 shadow-xl backdrop-blur-sm">
           
         <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-        Heyy🎉
+        Dear my lovely Erdenechimeg 💖
         </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          It's been a while since we've seen each other — I might be starting to forget your face a little 😂  but somehow 
-          I never forget your birthday.  
+          Welcome to your 20s — This is such a special moment, like the beginning of a whole new era in your life. From here on, everything feels a little bigger, brighter, and more exciting in the best way.  
           </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          Anyway, I just wanted to say I hope this new decade brings you the courage to try anything you want. It's okay to 
-          make mistakes — we're still young, and that's how we learn about the world and about ourselves. Be brave, take risks, 
-          and trust that there are people who genuinely care about you and are quietly cheering for you. Yes, I'm included.  
-          </p>
+          As we step into this new chapter, we’re no longer those little teenage girls. We’re becoming women who take full responsibility for our lives, our dreams, and who we want to be. And honestly, that’s what makes this journey so powerful and meaningful. Right now, we’re at a stage where we’re fearless, full of energy, and ready to take on the world. So let’s do everything we’ve ever dreamed of — learn, grow, laugh endlessly, and live life to the fullest.
+         </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          I don't usually go around saying "I like this or that about you," but today's special and you might just deserve a 
-          little extra kindness from me… your sense of humor has always been funny in the best ways. And let's be honest, 
-          that smile of yours is still dangerously good. You better keep it and not show it to every random girl you meet — 
-          haha, of course I'm joking. But really, I hope you know what a charming person you are.😉
-          </p>
+          Along the way, you might meet the one who feels like they were always meant to find you, and loves you in a way that just feels right . And maybe, one day, you’ll even meet your own little “you” — a thought that feels both surreal and incredibly beautiful 🥹 What makes it even more special for me is knowing that I get to be part of your journey. I’m so grateful that I can stand by your side, go through everything together, support each other, and create memories that we’ll carry with us forever.
+        </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          And I'm writing this in English because if I said all of this in Mongolian, it would sound way too serious and lose 
-          its funny 😂 I probably wouldn't even find the right words to express what I mean.  
-          </p>
+          And one day, when we’re older, we’ll look back at this time with so many stories, smiles, and memories to cherish.
+       </p>
 
           <p className="text-base md:text-lg font-paragraph italic leading-relaxed text-muted-foreground text-center mb-6">
-          So yeah… I just hope you live your 20s fully — feel everything, learn from everything, and grow into the best 
-          version of yourself.
+          Happy 20th birthday, my love. I’m so proud of you and so lucky to have you 🤍✨
+
+
           </p>
 
           <div className="flex items-center justify-center gap-2 mb-6">
@@ -279,7 +273,7 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
           <p className="font-script text-2xl md:text-3xl text-primary text-center">
           Cheers to all your wishes coming true          </p>
           <p className="font-script text-xl md:text-2xl text-brown text-end mt-1">
-          ~ Kh ~
+          ~ Your forever bestie khulan ~
           </p>
         </div>
       </motion.div>

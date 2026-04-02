@@ -192,7 +192,7 @@ const BlowCandles = ({ onComplete }: BlowCandlesProps) => {
              <div className="h-3 bg-orange-950 rounded-b-lg mx-2" />
             {/* Bottom layer */}
             <div className="h-12 md:h-16 rounded-b-2xl bg-secondary border-x-2 border-b-2 border-border flex items-center justify-center">
-              <p className="font-script text-lg md:text-xl text-ellipsis">You're 20?</p>
+              <p className="font-script text-lg md:text-xl text-ellipsis">Welocome to 20</p>
             </div>
           </div>
 

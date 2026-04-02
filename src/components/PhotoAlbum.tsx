@@ -17,11 +17,9 @@ const PhotoAlbum = () => (
       transition={{ delay: 0.2, duration: 0.6 }}
       className="flex items-center gap-3 mb-10"
     >
-      <Camera className="w-5 h-5 text-primary" />
-      <h2 className="font-script text-3xl md:text-4xl text-primary">
-        Our Little Memories
+      <h2 className="font-script text-2xl text-muted-foreground">
+     Last but not least, love her so much and 
       </h2>
-      <Camera className="w-5 h-5 text-primary" />
     </motion.div>
 
     {/* Video */}
@@ -50,7 +48,7 @@ const PhotoAlbum = () => (
       transition={{ delay: 1.5 }}
       className="mt-10 mb-8 font-script text-xl text-muted-foreground"
     >
-      ✨ Here's to many more memories ✨
+      That little girl is still in you 🤍 No matter how much time passes or how much you grow, I hope you always keep her close—the one who laughs really loudly, gets excited over small things, and sometimes just follows her heart without thinking too much. It’s okay to choose what feels right, and let your heart guide you sometimes.
     </motion.p>
   </motion.div>
 );
