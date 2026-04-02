@@ -22,7 +22,8 @@ const Index = () => {
           {step === "candles" && (
             <BlowCandles onComplete={() => setStep("message")} />
           )}
-          {step === "message" && <BirthdayMessage />}
+          {step === "message" && <BirthdayMessage onNext={() => setStep("album")} />}
+          {step === "album" && <PhotoAlbum />}
         </AnimatePresence>
       </div>
     </div>
