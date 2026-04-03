@@ -13,6 +13,18 @@ const PhotoAlbum = () => {
     }
   };
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.play().catch(() => {
+      // Browser blocked unmuted autoplay, fall back to muted
+      video.muted = true;
+      setIsMuted(true);
+      video.play().catch(() => {});
+    });
+  }, []);
+
   return (
     <motion.div
       key="album"
