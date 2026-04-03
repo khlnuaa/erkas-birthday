@@ -8,6 +8,7 @@ import PhotoAlbum from "@/components/PhotoAlbum";
 
 const Index = () => {
   const [step, setStep] = useState<"envelope" | "candles" | "message" | "album">("envelope");
+  const [showAlbum, setShowAlbum] = useState(false);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
