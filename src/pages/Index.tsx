@@ -23,8 +23,14 @@ const Index = () => {
           {step === "candles" && (
             <BlowCandles onComplete={() => setStep("message")} />
           )}
-          {step === "message" && <BirthdayMessage onNext={() => setStep("album")} />}
-          {step === "album" && <PhotoAlbum />}
+          {step === "message" && (
+            <div className="flex flex-col items-center w-full">
+              <BirthdayMessage onNext={() => setShowAlbum(true)} />
+              <AnimatePresence>
+                {showAlbum && <PhotoAlbum />}
+              </AnimatePresence>
+            </div>
+          )}
         </AnimatePresence>
       </div>
     </div>
