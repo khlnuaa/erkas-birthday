@@ -125,13 +125,11 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
       key="message"
       initial={{ opacity: 0, scale: 0, rotate: -10 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      exit={{ opacity: 0, y: -200, scale: 0.8, transition: { duration: 0.5, ease: "easeIn" } }}
+      exit={{ opacity: 0, y: -40, transition: { duration: 0.3 } }}
       transition={{
         duration: 0.8,
         type: "spring",
         bounce: 0.6,
-        stiffness: 200,
-        damping: 12,
       }}
       ref={containerRef}
       className="flex flex-col items-center max-h-[85vh] overflow-y-auto scrollbar-hide"
