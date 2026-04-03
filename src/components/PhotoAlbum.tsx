@@ -33,7 +33,9 @@ const PhotoAlbum = () => (
         <div className="rounded-xl overflow-hidden bg-muted aspect-[4/3] mx-auto">
           <video
             src="https://pub-e2d4cdbf92de47a19dea2e3fccc07d4a.r2.dev/copy_93C15EE1-FC54-40CB-A88A-14AB13629DC2.mov"
-            controls
+            autoPlay
+            loop
+            muted
             playsInline
             className="w-full h-full object-contain bg-black"
           />

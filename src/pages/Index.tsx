@@ -8,6 +8,7 @@ import PhotoAlbum from "@/components/PhotoAlbum";
 
 const Index = () => {
   const [step, setStep] = useState<"envelope" | "candles" | "message" | "album">("envelope");
+  const [showAlbum, setShowAlbum] = useState(false);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
@@ -22,8 +23,14 @@ const Index = () => {
           {step === "candles" && (
             <BlowCandles onComplete={() => setStep("message")} />
           )}
-          {step === "message" && <BirthdayMessage onNext={() => setStep("album")} />}
-          {step === "album" && <PhotoAlbum />}
+          {step === "message" && (
+            <div className="flex flex-col items-center w-full">
+              <BirthdayMessage onNext={() => setShowAlbum(true)} />
+              <AnimatePresence>
+                {showAlbum && <PhotoAlbum />}
+              </AnimatePresence>
+            </div>
+          )}
         </AnimatePresence>
       </div>
     </div>
@@ -118,13 +125,11 @@ const BirthdayMessage = ({ onNext }: { onNext: () => void }) => {
       key="message"
       initial={{ opacity: 0, scale: 0, rotate: -10 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      exit={{ opacity: 0, y: -200, scale: 0.8, transition: { duration: 0.5, ease: "easeIn" } }}
+      exit={{ opacity: 0, y: -40, transition: { duration: 0.3 } }}
       transition={{
         duration: 0.8,
         type: "spring",
         bounce: 0.6,
-        stiffness: 200,
-        damping: 12,
       }}
       ref={containerRef}
       className="flex flex-col items-center max-h-[85vh] overflow-y-auto scrollbar-hide"
