@@ -16,13 +16,27 @@ const PhotoAlbum = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = false;
-    video.play().catch(() => {
-      // Browser blocked unmuted autoplay, fall back to muted
-      video.muted = true;
-      setIsMuted(true);
-      video.play().catch(() => {});
-    });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          video.play().catch(() => {
+            video.muted = true;
+            setIsMuted(true);
+            video.play().catch(() => {});
+          });
+          setIsMuted(false);
+        } else {
+          video.muted = true;
+          setIsMuted(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
   }, []);
 
   return (
