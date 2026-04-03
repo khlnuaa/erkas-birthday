@@ -4,7 +4,7 @@ import { Volume2, VolumeX } from "lucide-react";
 
 const PhotoAlbum = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
 
   const toggleMute = () => {
     if (videoRef.current) {
